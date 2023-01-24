@@ -1,10 +1,9 @@
-FROM python:3.9
+FROM python:3.9.0
 
-# set the working directory
+RUN pip install pandas sqlalchemy requests
+
 WORKDIR /app
 
-# start the container in interactive mode
-CMD ["bash"]
+copy main.py main.py
 
-# set the entrypoint
-ENTRYPOINT ["/bin/bash", "-c"]
+ENTRYPOINT ["python", "main.py"]
